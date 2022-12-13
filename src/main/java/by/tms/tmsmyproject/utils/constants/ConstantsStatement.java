@@ -13,6 +13,8 @@ public final class ConstantsStatement {
 
     public static final String UPDATE_USER = "UPDATE users SET login=?,password=?,role=?,email=?,name=?,surname=? WHERE id=?;";
 
+    public static final String SELECT_AMOUNT_USER_BY_ID = "SELECT COUNT(*) FROM users WHERE id=?";
+
     public static final String SELECT_AMOUNT_USER_BY_LOGIN = "SELECT COUNT(*) FROM users WHERE login=?";
 
     public static final String SELECT_AMOUNT_USER_BY_EMAIL = "SELECT COUNT(*) FROM users WHERE email=?";

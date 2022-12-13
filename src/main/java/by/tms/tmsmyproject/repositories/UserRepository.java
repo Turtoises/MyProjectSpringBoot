@@ -8,6 +8,8 @@ public interface UserRepository extends CrudRepository<User> {
 
     User getByLogin(String login);
 
+    boolean isUserId(Long id);
+
     boolean isUserLogin(String login);
 
     boolean isUserEmail(String email);

@@ -3,12 +3,13 @@ package by.tms.tmsmyproject.controllers;
 import by.tms.tmsmyproject.entities.User;
 import by.tms.tmsmyproject.services.UserService;
 import by.tms.tmsmyproject.utils.validators.UserValidator;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @Controller

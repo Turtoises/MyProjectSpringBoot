@@ -40,7 +40,7 @@
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.surname}"></td>
                     <td th:text="${user.login}"></td>
-                    <td th:text="${user.role.value}"></td>
+                    <td th:text="${user.role}"></td>
                     <td th:text="${user.email}"></td>
                     <td><a th:href="@{users/{id}/edit(id=${user.id})}" class="btn btn-danger" type="button"><i
                             class="fa fa-hand-o-up" aria-hidden="true"></i> </a></td>

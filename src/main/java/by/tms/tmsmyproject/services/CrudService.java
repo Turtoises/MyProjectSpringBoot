@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface CrudService <E extends AbstractEntity> {
 
-    boolean deleteById(Long id);
+    E deleteById(Long id);
 
     boolean delete(E entity);
 
     E getById(Long id);
 
-    boolean create(E entity);
+    E create(E entity);
 
-    boolean update(E entity);
+   E update(E entity);
 
     List<E> getAll();
 

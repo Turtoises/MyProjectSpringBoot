@@ -4,7 +4,6 @@ import by.tms.tmsmyproject.entities.User;
 import by.tms.tmsmyproject.repositories.UserRepository;
 import by.tms.tmsmyproject.utils.constants.ConstantsStatement;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -33,13 +32,13 @@ public class UserRepositoryIml implements UserRepository {
 
     @Override
     public boolean create(User user) {
-        int row = jdbcTemplate.update(ConstantsStatement.INSERT_USER, user.getArrayFields());
+        int row = jdbcTemplate.update(ConstantsStatement.INSERT_USER, user.arrayFields());
         return row != 0;
     }
 
     @Override
     public boolean update(User user) {
-        ArrayList<Object> list=new ArrayList<>(Arrays.asList(user.getArrayFields()));
+        ArrayList<Object> list=new ArrayList<>(Arrays.asList(user.arrayFields()));
         list.add(user.getId());
         int row=jdbcTemplate.update(ConstantsStatement.UPDATE_USER, list.toArray());
 
@@ -64,6 +63,12 @@ public class UserRepositoryIml implements UserRepository {
     }
 
     @Override
+    public boolean isUserId(Long id) {
+        int amount = jdbcTemplate.queryForObject(ConstantsStatement.SELECT_AMOUNT_USER_BY_ID, Integer.class, id);
+        return amount > 0;
+    }
+
+    @Override
     public boolean isUserLogin(String login) {
         int amount = jdbcTemplate.queryForObject(ConstantsStatement.SELECT_AMOUNT_USER_BY_LOGIN, Integer.class, login);
         return amount > 0;
@@ -73,9 +78,8 @@ public class UserRepositoryIml implements UserRepository {
     public boolean isUserEmail(String email) {
         int amount = jdbcTemplate.queryForObject(ConstantsStatement.SELECT_AMOUNT_USER_BY_EMAIL, Integer.class, email);
         return amount > 0;
-
-
     }
+
 }
 
 
